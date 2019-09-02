@@ -1,23 +1,12 @@
-# react-three-shadertoy
+# React Shadertoy Example
 
-### Overview
+## Overview
 
-Uses shadertoy format .
+TODO
 
-### Usage
+Uses shadertoy format?
 
-Declarative Example
-
-```jsx
-<ShaderToy>
-  <Shader>
-    {`
-    // Shader code here
-    `}
-  </Shader>
-  <ShaderInput data={} />
-</ShaderToy>
-```
+## Usage
 
 Props Example
 
