@@ -1,0 +1,35 @@
+{
+  "name": "react-three-shadertoy",
+  "version": "1.0.0",
+  "description": "React Shadertoy Component",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.pug --open",
+    "build": "parcel build index.pug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warrengoble/react-shadertoy-example.git"
+  },
+  "keywords": [
+    "react",
+    "webgl",
+    "shader",
+    "pixi.js",
+    "parcel"
+  ],
+  "author": "Warren Goble <warren@hack.expert>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/warrengoble/react-shadertoy-example/issues"
+  },
+  "homepage": "https://github.com/warrengoble/react-shadertoy-example#readme",
+  "dependencies": {
+    "pixi.js": "5.1.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}
