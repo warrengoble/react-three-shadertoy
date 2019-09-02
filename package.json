@@ -27,9 +27,14 @@
   "dependencies": {
     "pixi.js": "5.1.2",
     "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react-dom": "16.9.0",
+    "styled-jsx": "3.2.2"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.3"
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.12.3",
+    "pug": "^2.0.4"
   }
 }

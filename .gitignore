@@ -1,8 +1,5 @@
 node_modules
-.next
-.env
+dist
 package-lock.json
-
-dbCouchDBTesting
-dbMongoDBTesting
+.cache
 report.*
