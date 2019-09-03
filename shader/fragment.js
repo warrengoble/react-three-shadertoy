@@ -85,7 +85,7 @@ vec4 subsurface(vec3 o, vec3 dir){
 }
 
 float G(float dotNV, float k){
-	return 1.0/(dotNV*(1.0f-k)+k);
+	return 1.0/(dotNV*(1.0-k)+k);
 }
 
 // from http://filmicworlds.com/blog/optimizing-ggx-shaders-with-dotlh/
@@ -132,7 +132,8 @@ void mainImage(out vec4 fragColor, vec2 fragCoord){
         p.x *= iResolution.x/iResolution.y;
         
         // motion blur
-        float r = texelFetch(iChannel0, ivec2(mod(fragCoord*float(samples)+vec2(x,y),1024.)),0).r;
+        // float r = texelFetch(iChannel0, ivec2(mod(fragCoord*float(samples)+vec2(x,y),1024.)), 0).r;
+        float r = texture(iChannel0, vec2(mod(fragCoord*float(samples)+vec2(x,y),1024.))).r;
         T = ot+(tm*r)/36.0;
         
         // camera setup
@@ -190,5 +191,4 @@ void mainImage(out vec4 fragColor, vec2 fragCoord){
     fragColor.rgb = mix(vec3(dot(fragColor.rgb, vec3(.2125,.7154,.0721))), fragColor.rgb, 1.3);
     fragColor.rgb = smoothstep(0.0, 1.25, fragColor.rgb);
     fragColor.rgb = pow(fragColor.rgb, vec3(1.0/2.2));
-}
-    `;
+}`;
