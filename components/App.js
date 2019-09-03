@@ -16,7 +16,7 @@ export default () => {
             margin: 0;
             padding: 0;
             background-color: #ddd;
-            font-family: Arial, Helvetica, Helvetica Neue;
+            font-family: Arial;
             font-size: 12px;
           }
         `}
