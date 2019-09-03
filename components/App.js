@@ -9,11 +9,24 @@ export default () => {
 
   return (
     <div className="root">
+      <style jsx global>
+        {`
+          body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background-color: #ddd;
+            font-family: Arial, Helvetica, Helvetica Neue;
+            font-size: 12px;
+          }
+        `}
+      </style>
       <style jsx>
         {`
           .root {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
           }
         `}
       </style>
