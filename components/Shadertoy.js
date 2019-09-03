@@ -1,5 +1,5 @@
 import React from "react";
-import { useReducer, useEffect, useRef } from "react";
+import { useReducer, useEffect, useRef, useMemo } from "react";
 import { Application, Filter, Graphics } from "pixi.js";
 
 // Action types
@@ -67,8 +67,6 @@ export default ({ width = 500, height = 500, shader, children }) => {
     const { app } = state;
 
     if (!app) {
-      console.log("Mounting");
-
       const app = new Application({
         width,
         height
@@ -99,7 +97,13 @@ export default ({ width = 500, height = 500, shader, children }) => {
     // };
   });
 
-  // TODO Add memorize
+  useMemo(() => {
+    const { app } = state;
+
+    if (app) {
+      app.renderer.resize(width, height);
+    }
+  }, [width, height]);
 
   return <div ref={pixiRef}>{children}</div>;
 };
