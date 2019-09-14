@@ -4,19 +4,23 @@ import { Application, Filter, Graphics } from "pixi.js";
 
 // Action types
 const MOUNTED = "MOUNTED";
+const TIME = "TIME";
 
 // Reducers
-const initialState = {};
+const initialState = { time: 0 };
 
-const reducer = (state, { type, app, rect }) => {
+const reducer = (state, { type, app, rect, time }) => {
   switch (type) {
     case MOUNTED:
       return { ...state, app, rect };
+    case TIME:
+      return { ...state, time };
     default:
       return state;
   }
 };
 
+// TODO Add mouse
 const fragmentPrefix = `
 // precision highp float;
 
@@ -72,16 +76,32 @@ export default ({ width = 500, height = 500, shader, children }) => {
         height
       });
 
-      const rect = new Graphics().drawRect(0, 0, width, height);
+      const rect = new Graphics().drawRect(0, 0, 1, 1);
+      rect.transform.scale.set(width, height);
 
       const fragmentEnhanced = `${fragmentPrefix}
       ${shader}`;
 
-      rect.filters = [new Filter(null, fragmentEnhanced)];
+      // console.log("fragmentEnhanced", fragmentEnhanced);
+      rect.filters = [
+        new Filter(null, fragmentEnhanced, {
+          iResolution: [width, height]
+          // iTimeDelta: 0
+          // iTime: Date.now()
+        })
+      ];
+
       app.stage.addChild(rect);
 
+      let time = 0;
+
       app.ticker.add(delta => {
-        // Update uniforms
+        // const { time } = state;
+
+        rect.filters[0].uniforms.iTime = parseInt(time) / 1000;
+        time = time + delta;
+
+        rect.filters[0].uniforms.iTimeDelta = delta;
       });
 
       pixiRef.current.appendChild(app.view);
@@ -98,10 +118,16 @@ export default ({ width = 500, height = 500, shader, children }) => {
   });
 
   useMemo(() => {
-    const { app } = state;
+    const { app, rect } = state;
 
     if (app) {
       app.renderer.resize(width, height);
+      rect.transform.scale.set(width, height);
+
+      rect.filters[0].uniforms.iResolution = [
+        parseInt(width / 2),
+        parseInt(height / 2)
+      ];
     }
   }, [width, height]);
 
