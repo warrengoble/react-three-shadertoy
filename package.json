@@ -4,8 +4,7 @@
   "description": "React Shadertoy Example",
   "main": "index.js",
   "scripts": {
-    "start": "node main.js",
-    "build": "parcel build index.pug"
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
