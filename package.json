@@ -19,7 +19,7 @@
     "parcel"
   ],
   "author": "Warren Goble <warren@hack.expert>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/warrengoble/react-shadertoy-example/issues"
   },
