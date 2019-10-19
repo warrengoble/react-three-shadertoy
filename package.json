@@ -13,8 +13,8 @@
   "keywords": [
     "react",
     "webgl",
-    "shader",
-    "pixi.js",
+    "shadertoy",
+    "threejs",
     "parcel"
   ],
   "author": "Warren Goble <warren@hack.expert>",
@@ -25,11 +25,12 @@
   "homepage": "https://github.com/warrengoble/react-shadertoy-example#readme",
   "dependencies": {
     "express": "4.17.1",
-    "pixi.js": "5.1.5",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-resize-detector": "4.2.1",
-    "styled-jsx": "3.2.2"
+    "react-shadertoy": "github:warrengoble/react-shadertoy#master",
+    "styled-jsx": "3.2.2",
+    "three": "^0.109.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

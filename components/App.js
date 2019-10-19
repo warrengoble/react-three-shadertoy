@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactResizeDetector from "react-resize-detector";
 
-import Shadertoy from "./Shadertoy";
+import Shadertoy from "react-shadertoy";
 import shader from "../shader/fragment";
 
 export default () => {
